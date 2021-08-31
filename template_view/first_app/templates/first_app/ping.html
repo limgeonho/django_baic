@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="{% url 'first_app:pong' %}">
+  <div>
+    <label for="message">메세지: </label>
+    <input name="message" type="text" id="message">
+  </div>
+
+  <div>
+    <label for="sign">Sign: </label>
+    <input name="sign" type="text" id="sign">
+  </div>
+
+  <input type="submit">
+</form>
+{% endblock content %}
