@@ -1,9 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Detail Page</h1>
-  <h1>{{ article.title }}</h1>
-  <p>{{ article.content }}</p>
+<h1>Detail</h1>
+  <div>
+    {{ article.title }}
+  </div>
+  
+  <div>
+    {{ article.content }}
+  </div>
 
   <hr>
 
@@ -15,8 +20,7 @@
 
   <form action="{% url 'articles:delete' article.pk %}" method="POST">
     {% csrf_token %}
-    {% comment %} onclick="return confirm('진짜 삭제하실??')" -> JS로 브라우저를 직접 control {% endcomment %}
-    <button onclick="return confirm('진짜 삭제하실??')">삭제</button>
+    <button onclick="return confirm('삭제?')">삭제</button>
   </form>
 
 {% endblock content %}
