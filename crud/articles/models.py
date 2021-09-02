@@ -1,5 +1,6 @@
 from django.db import models
 
+
 """
 1. 모델명(클래스명) => 명사형 단수로 작성
 2. 1 모델 == DB의 1 테이블과 대응(Article == excel에서 1 sheet)
@@ -7,6 +8,7 @@ from django.db import models
 """
 
 
+# models.Model를 선언함으로 Article는 DB에 접근가능한 클래스가 되었다.
 class Article(models.Model):
     title = models.CharField(max_length=20)
     content = models.TextField()

@@ -8,6 +8,14 @@
   <title>Document</title>
 </head>
 <body>
+  <nav>
+    <ul>
+      <li><a href="{% url 'articles:index' %}">Home</a></li>
+      <li><a href="{% url 'articles:new' %}">New</a></li>
+           
+    </ul>
+  </nav>
+
   {% block content %}
   
   {% endblock content %} 

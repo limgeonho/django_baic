@@ -4,4 +4,13 @@
 <h1>Detail Page</h1>
   <h1>{{ article.title }}</h1>
   <p>{{ article.content }}</p>
+
+  <hr>
+
+  <form action="{% url 'articles:delete' article.pk %}" method="POST">
+    {% csrf_token %}
+    {% comment %} onclick="return confirm('진짜 삭제하실??')" -> JS로 브라우저를 직접 control {% endcomment %}
+    <button onclick="return confirm('진짜 삭제하실??')">삭제</button>
+  </form>
+
 {% endblock content %}
