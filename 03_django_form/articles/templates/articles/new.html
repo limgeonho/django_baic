@@ -1,0 +1,8 @@
+<form action="{% url 'articles:create' %}" method="POST">
+  {% csrf_token %}
+
+  {% comment %} form은 input관련해서만 생성 {% endcomment %}
+  {{ form.as_p }}
+
+  <button>제출</button>
+</form>

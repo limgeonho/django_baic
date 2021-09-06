@@ -1,0 +1,8 @@
+<form action="newsletter:pong" method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+
+  <div>
+    <button>Go</button>
+  </div>
+</form>
