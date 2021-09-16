@@ -1,9 +1,27 @@
-{% comment %} form 의 action에 아무것도 없다면 현재 요청된 url로 돌아간다 -> create와 update를 하나로 합칠 수 있다(이 둘은 같은 역할을 하니까!) {% endcomment %}
-<form method="POST">
-  {% csrf_token %}
+{% extends "base.html" %}
+{% load bootstrap5 %}
 
-  {% comment %} form은 input관련해서만 생성 {% endcomment %}
-  {{ form.as_p }}
 
-  <button>제출</button>
-</form>
+{% block content %}
+  {% comment %} form 의 action에 아무것도 없다면 현재 요청된 url로 돌아간다 -> create와 update를 하나로 합칠 수 있다(이 둘은 같은 역할을 하니까!) {% endcomment %}
+  
+  {% if request.resolver_match.url_name == 'create' %}
+    <h1>Create</h1>
+  {% elif request.resolver_match.url_name == 'update' %}
+    <h1>Update</h1>
+  {% endif %}
+  
+  {% comment %} 또 다른 방법 {% endcomment %}
+  {{ page_name }}
+
+  <form method="POST">
+    {% csrf_token %}
+
+    {% comment %} form은 input관련해서만 생성 {% endcomment %}
+    {{ form.as_p }}
+
+    <button>제출</button>
+  </form>
+
+{% endblock content %}
+

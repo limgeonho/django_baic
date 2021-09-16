@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  
+  {% comment %} 
+  IMAGE HERE
+  1. app > static
+  2. 커스텀 지정한 폴더 
+  {% endcomment %}
+
+  <h2>Articles</h2>
+  <a href="{% url 'articles:create' %}">[create]</a>
+  <hr>
+  {% comment %} 
+  {% for  in  %}
+  
+  {% empty %}
+  
+  {% endfor %} 
+  {% endcomment %}
+  {% for article in articles %}
+    <div>
+      글 번호 : {{ article.pk }}
+    </div>
+
+    <div>
+      글 제목 : {{ article.title }}
+    </div>
+
+    <div>
+      글 내용 : {{ article.content }}
+    </div>
+
+    <div>
+      <a href="{% url 'articles:detail' article.pk %}">[detail]</a>
+    </div>
+
+    <hr>
+  {% empty %}
+  <li> not yet </li>
+  {% endfor %}
+{% endblock content %}

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'articles',
     'newsletter',
     'django_extensions',
+    'bootstrap5',
 
 ]
 

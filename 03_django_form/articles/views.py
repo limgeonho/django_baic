@@ -50,6 +50,7 @@ def create(request):
     # 3. 빈 form을 context에 담음
     # 8. 에러메세지를 담은 form을 dontext에 담음
     context = {
+        'page_name': 'create',
         'form': form,
     }
     # 4. 사용자에게 빈 form을 제공
@@ -94,6 +95,7 @@ def update(request, article_pk):
     context = {
         'article': article,
         'form': form,
+        'page_name': 'update',
     }
     return render(request, 'articles/form.html', context)
 
