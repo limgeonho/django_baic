@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <h1>{{ article.title }}</h1>
+  <p> {{ article.content }} </p>
+  
+  {% if article.image %}
+    <img src="{{ article.image.url }}" alt="{{article.image}}">
+  {% else %}
+    <img src="{% static 'articles/sample2.jpg' %}" alt="smaple.iamge">
+  {% endif %}
+
+  <a href="{% url 'articles:index' %}"><button>BACK</button></a>
+  <a href="{% url 'articles:update' article.pk %}"><button>수정</button></a>
+  
+  <form action="{% url 'articles:delete' article.pk %}" method="POST">
+    {% csrf_token %}
+    <button>삭제</button>
+  </form>
+{% endblock content %}

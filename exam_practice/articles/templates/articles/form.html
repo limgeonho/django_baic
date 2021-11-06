@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ page_name }}</h1>
+  {% comment %}  {% endcomment %}
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button>제출</button>
+  </form>
+  <a href="{% url 'articles:index' %}"><button>BACK</button></a>
+{% endblock content %}
